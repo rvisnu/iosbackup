@@ -100,13 +100,13 @@ if __name__ == "__main__":
     routers = backup.reader()
 
     while True:
+        calender = time.strftime("%Y-%m-%d")  # Year Month Date
         for router in routers:
             router = router.strip()
             backup.login(router)
             show_run = backup.run()
-            calender = time.strftime("%Y-%m-%d")  # Year Month Date
-            backup.writer(router,show_run,calender)
             backup.logout()
+            backup.writer(router,show_run,calender)
             print 'Recent Back up: {}'.format(calender)
         time.sleep(2600000) # Approx a month 60X60X24X30 = 2600000
 
