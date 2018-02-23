@@ -56,11 +56,14 @@ class IosBackup:
                                       username=self.username,
                                       password=self.password)
         return True
+    
     def logout(self):
         '''
         logs out of device
         '''
         self.session.disconnect()
+        return True
+    
     def run(self):
         '''
         Runs show runn command and returns output as list
